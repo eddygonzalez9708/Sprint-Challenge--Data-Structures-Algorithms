@@ -2,13 +2,24 @@ def heapsort(arr):
   # initialize our heap 
   heap = Heap() 
   # initialize our sorted array to have length equal to our input array
-  sorted = [0] * len(arr)
+  
+  # First Solution 
+  sorted = []
+
+  # Second Solution 
+  # sorted = [0] * len(arr)
+
 
   for el in arr: 
     heap.insert(el)
+
+  # First Solution 
+  while heap.get_size() > 0: 
+    sorted.insert(0, heap.delete())
   
-  for i in range(len(arr)): 
-    sorted[len(arr) - i - 1] = heap.delete() 
+  # Second Solution 
+  # for i in range(len(arr)): 
+  #   sorted[len(arr) - i - 1] = heap.delete() 
   
   return sorted 
 
