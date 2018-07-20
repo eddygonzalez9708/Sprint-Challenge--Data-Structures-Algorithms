@@ -9,11 +9,11 @@ class BinarySearchTree:
     #Recursive 
     #call the cb on the current BST mode
     
-    # cb(self.value)
-    # if self.left: 
-    #   self.left.depth_first_for_each(cb)
-    # if self.right: 
-    #   self.right.depth_first_for_each(cb)
+    cb(self.value)
+    if self.left: 
+      self.left.depth_first_for_each(cb)
+    if self.right: 
+      self.right.depth_first_for_each(cb)
 
     # Iterative 
     
@@ -34,7 +34,16 @@ class BinarySearchTree:
     #   cb(current_node.value)
 
   def breadth_first_for_each(self, cb):
-    pass
+    q = []
+    q.append(self)
+    while len(q): 
+      current_node = q.pop(0)
+      if current_node.left: 
+        q.append(current_node.left)
+      if current_node.right: 
+        q.append(current_node.right)
+      cb(current_node.value)
+
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
